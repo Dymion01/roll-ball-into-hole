@@ -15,3 +15,21 @@
     background: green;
     border-radius: 100%;
   }
+  .hole{
+    position: absolute; 
+    left: 1px;
+    top: 1px;
+    background-color: #555;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #000 inset;
+  }
+  .startBtn{
+    padding: 5px 10px;
+    margin: 2px;
+    background-color:  rgb(197, 255, 122);
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid black;
+  }
