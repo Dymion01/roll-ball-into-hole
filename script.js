@@ -27,9 +27,15 @@ function placeHole(){
     
     var CoordY = (Math.floor(Math.random() * playGround.clientWidth ) + 1);
     console.log(CoordX , CoordY);
-    playGround.querySelector('.hole').style.left = CoordX;
-    playGround.querySelector('.hole').style.top = CoordY;
+    // playGround.getElementById("Hole").style.left = CoordX;
+    // playGround.getElementById("Hole").style.top = CoordY;
+    // document.querySelector('.playGround').getElementsByClassName('.hole').style.left = CoordX
+    // document.querySelector('.playGround').getElementsByClassName("hole").style.top = CoordY
+    document.getElementById("Hole").style.left = CoordX;
+    document.getElementById("Hole").style.top = CoordY;
+    
 return CoordX, CoordY;
+
 }
 startbutton= document.querySelector('.startBtn');
 startbutton.addEventListener('click', placeHole);
