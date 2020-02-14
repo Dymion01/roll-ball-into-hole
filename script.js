@@ -1,6 +1,6 @@
 var ball   = document.querySelector('.ball');
 var playGround = document.querySelector('.playGround');
-
+var holee;
 
 var maxX = playGround.clientWidth  - ball.clientWidth;
 var maxY = playGround.clientHeight - ball.clientHeight;
@@ -22,19 +22,23 @@ function handleOrientation(event) {
 }
 
 function placeHole(){
- 
-    var CoordX = (Math.floor(Math.random() * playGround.clientWidth) + 1);
+  holee = document.createElement('div');
+  holee.classList.add('hole');
+  holee.id = "Hole" ;
+  holee.style.transform =  "translateX(" +Math.random() *( playGround.clientWidth-10)   + "px) translateY(" + Math.random() * (playGround.clientHeight- 10) + "px)";
+  playGround.appendChild(holee);
+    // var CoordX = (Math.floor(Math.random() * playGround.clientWidth) + 1);
     
-    var CoordY = (Math.floor(Math.random() * playGround.clientWidth ) + 1);
-    console.log(CoordX , CoordY);
-    // playGround.getElementById("Hole").style.left = CoordX;
-    // playGround.getElementById("Hole").style.top = CoordY;
-    // document.querySelector('.playGround').getElementsByClassName('.hole').style.left = CoordX
-    // document.querySelector('.playGround').getElementsByClassName("hole").style.top = CoordY
-    document.getElementById("Hole").style.left = CoordX;
-    document.getElementById("Hole").style.top = CoordY;
+    // var CoordY = (Math.floor(Math.random() * playGround.clientWidth ) + 1);
+    // console.log(CoordX , CoordY);
+    // // playGround.getElementById("Hole").style.left = CoordX;
+    // // playGround.getElementById("Hole").style.top = CoordY;
+    // // document.querySelector('.playGround').getElementsByClassName('.hole').style.left = CoordX
+    // // document.querySelector('.playGround').getElementsByClassName("hole").style.top = CoordY
+    // document.getElementById("Hole").style.left = CoordX;
+    // document.getElementById("Hole").style.top = CoordY;
     
-return CoordX, CoordY;
+// return CoordX, CoordY;
 
 }
 startbutton= document.querySelector('.startBtn');

@@ -10,8 +10,8 @@
     position: absolute;
     top   : 140px;
     left  : 140px;
-    width : 20px;
-    height: 20px;
+    width : 10px;
+    height: 10px;
     background: green;
     border-radius: 100%;
   }
