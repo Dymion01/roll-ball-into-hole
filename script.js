@@ -4,6 +4,11 @@ var holee;
 
 var maxX = playGround.clientWidth  - ball.clientWidth;
 var maxY = playGround.clientHeight - ball.clientHeight;
+var ballX = 0;
+var ballY = 0;
+var holeX = 100;
+var holeY =100;
+var data1;
 
 function handleOrientation(event) {
   var x = event.beta;
@@ -19,30 +24,33 @@ function handleOrientation(event) {
   
   ball.style.top  = (maxY*y/180 - 10) + "px";
   ball.style.left = (maxX*x/180 - 10) + "px";
+  ballX = (maxX*x/180 - 10);
+  ballY =(maxY*y/180 - 10);
+  console.log(ballY,ballX);
+  
+  if(ballX >= holeX && ballX <= holeX +20 && ballY >= holeY && ballY <= holeY + 20 ){
+    won = true;
+    console.log(won);
+    var data2 = Date.now();
+    document.getElementById("para").innerHTML = "Twój czas to: " +  (data2-data1)/1000 + " sekund";
+  }
 }
-
+// if(ballX >= xx && ballX <= xx + 20 && ballY >= yy && ballY <= yy + 20)
+ 
 function placeHole(){
   holee = document.createElement('div');
   holee.classList.add('hole');
   holee.id = "Hole" ;
-  holee.style.transform =  "translateX(" +Math.random() *( playGround.clientWidth-10)   + "px) translateY(" + Math.random() * (playGround.clientHeight- 10) + "px)";
+   holeX = Math.random() * (playGround.clientWidth - 10)
+   holeY = Math.random() * (playGround.clientHeight - 10)
+  holee.style.transform =  "translateX(" + holeX  + "px) translateY(" + holeY + "px)";
   playGround.appendChild(holee);
-    // var CoordX = (Math.floor(Math.random() * playGround.clientWidth) + 1);
-    
-    // var CoordY = (Math.floor(Math.random() * playGround.clientWidth ) + 1);
-    // console.log(CoordX , CoordY);
-    // // playGround.getElementById("Hole").style.left = CoordX;
-    // // playGround.getElementById("Hole").style.top = CoordY;
-    // // document.querySelector('.playGround').getElementsByClassName('.hole').style.left = CoordX
-    // // document.querySelector('.playGround').getElementsByClassName("hole").style.top = CoordY
-    // document.getElementById("Hole").style.left = CoordX;
-    // document.getElementById("Hole").style.top = CoordY;
-    
-// return CoordX, CoordY;
-
+  console.log(holeX, holeY);
+  data1 = Date.now();
 }
+var won = false
+
 startbutton= document.querySelector('.startBtn');
 startbutton.addEventListener('click', placeHole);
-
 
 window.addEventListener('deviceorientation', handleOrientation);
